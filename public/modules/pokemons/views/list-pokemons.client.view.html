@@ -1,0 +1,21 @@
+<section data-ng-controller="PokemonsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Pokemons</h1>
+    </div>
+    <button ng-click="createFromJson()" class="btn btn-default">Add it</button>
+    
+    <div class="list-group">
+        <a data-ng-repeat="pokemon in pokemons" data-ng-href="#!/pokemons/{{pokemon._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="pokemon.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="pokemon.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="pokemon.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!pokemons.$resolved || pokemons.length">
+    	No Pokemons yet, why don't you <a href="/#!/pokemons/create">create one</a>?
+    </div>
+</section>
