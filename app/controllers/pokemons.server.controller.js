@@ -123,6 +123,13 @@ exports.read = function(req, res) {
 };
 
 /**
+*test function
+**/
+exports.testFunction=function(req,res){
+    res.send('this works!');  
+};
+
+/**
  * Update a Pokemon
  */
 exports.update = function(req, res) {

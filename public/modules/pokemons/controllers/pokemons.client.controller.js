@@ -69,8 +69,9 @@ angular.module('pokemons').controller('PokemonsController', ['$scope', '$statePa
             reqBody.atk=7;
             reqBody.def=20;
             reqBody.hp=130;
-            $http.post('http://localhost:3000/createFromJson',reqBody).
+            $http.get('http://localhost:3000/getname/psyduck',reqBody).
                 success(function(data, status){
+                    $scope.pokemon=data;
                     console.log(data);
                 });              
         };

@@ -3,6 +3,10 @@
         <h1>Pokemons</h1>
     </div>
     <button ng-click="createFromJson()" class="btn btn-default">Add it</button>
+    <br/>
+    pokemon name: {{pokemon.name}}<br/>
+    pokemon atk: {{pokemon.atk}}
+<!--    <input type="text" name="lname"><br>-->
     
     <div class="list-group">
         <a data-ng-repeat="pokemon in pokemons" data-ng-href="#!/pokemons/{{pokemon._id}}" class="list-group-item">

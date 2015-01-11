@@ -18,7 +18,12 @@ var express = require('express'),
 	flash = require('connect-flash'),
 	config = require('./config'),
 	consolidate = require('consolidate'),
-	path = require('path');
+	path = require('path'),
+http = require('http'),
+app = express(),
+server = http.createServer(app),
+io = require('socket.io').listen(server);
+    
 
 module.exports = function(db) {
 	// Initialize express app
@@ -136,5 +141,7 @@ module.exports = function(db) {
 		});
 	});
 
-	return app;
+	require('../app/controllers/socket.server.controller')(io);
+    return server;
+
 };

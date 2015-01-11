@@ -15,6 +15,7 @@ module.exports = function(app) {
 		.delete(users.requiresLogin, pokemons.hasAuthorization, pokemons.delete);
     
     app.route('/createFromJson')
+        .get(pokemons.testFunction)
         .post(pokemons.createFromJson);
 
     app.route('/getname/:pokeName')
